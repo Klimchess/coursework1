@@ -74,7 +74,15 @@ public class Main {
     }
 
     public static double calculateAverageSalary() {
-        return calculateTotalSalary() / countNonNullEmployees();
+        int nonNullEmployees = 0;
+        double sum = 0;
+        for (Employee employee : employees) {
+            if (employee != null) {
+                nonNullEmployees++;
+                sum += employee.getSalary();
+            }
+        }
+        return sum / nonNullEmployees;
     }
 
     public static void printFullNames() {
